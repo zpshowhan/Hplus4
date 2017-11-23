@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/index_v1.html?v=4.0 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:20 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--360浏览器优先以webkit内核解析-->
+
+
+    <title>H+ 后台主题UI框架 - 主页示例</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="../css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+	
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="../css/table.css" rel="stylesheet">
+<!--     <link href="css/demo.css" rel="stylesheet"> -->
+    <link href="../css/plugins/jqgrid/ui.jqgridffe4.css?0820" rel="stylesheet">
+    <script src="js/demo/echarts-demo.min.js"></script>
+    <script src="../js/plugins/echarts/echarts-all.js"></script>
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/layer/layer.min.js"></script>
+    <script src="../js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="../js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+    <script src="../js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+    
+    <script src="../js/content.min.js"></script>
+    <script src="../js/welcome.min.js"></script>
+	
+</head>
+
+<body class="gray-bg">
+    <div class="row  border-bottom white-bg dashboard-header">
+    	<div class="col-sm-12" >
+        	<div>
+				<!-- <h4 style="float:left;">待办任务</h4> -->
+				<a id="click_event" style="float:right;" ><i class="fa fa-bars" style=""></i></a>
+			</div>
+        	<div id="hidden_enent" class="tabs-container" style="margin-top:40px;">
+                    <ul class="nav nav-tabs">
+                    	<li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> 待办任务</a>
+                        </li>
+                        <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">已办代办</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active"> 
+                        	<div class="jqGrid_wrapper panel-body" >
+		                            <table id="table_list_1" ></table>
+		                            <div id="pager_list_1"></div>
+		                        </div> 
+                        </div>
+                         <div id="tab-2" class="tab-pane"> 
+                         	<div  class="jqGrid_wrapper panel-body" >
+	                        		<table id="table_list_2"  style="width: auto;"></table>
+	                        		<div id="pager_list_2" ></div>
+	                        	</div> 
+                         </div>
+                     </div>
+            </div>  
+        </div>
+        
+    </div>
+    <div class="wrapper wrapper-content">
+    	<div class="row">
+            <div class="col-sm-12">
+            	<div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>在线用户</h5>
+                        <div class="ibox-tools ">
+                            <a id="click_event" class="collapse-link" >
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div id="hidden_enent" class="ibox-content" >
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-sm-12" >
+            	<div class="ibox float-e-margins" style="height:300px;">
+                    <div class="ibox-title">
+                        <h5>系统访问图表</h5>
+                        <div class="ibox-tools ">
+                            <a id="click_event" class="collapse-link" >
+                                <i class="fa fa-chevron-up"></i>
+                            </a> 
+                        </div>
+                    </div>
+                     <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="graph_echarts.html" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                </div>
+            </div>
+         </div>
+    </div>
+        
+  
+  	
+    
+    <script type="text/javascript">
+    $(function(){
+  	  $('#click_event').click(function(){
+  	    if($('#hidden_enent').is(':hidden')){
+  	      $('#hidden_enent').show();
+  	      $('#click_event').val('点击隐藏');
+  	    }else{
+  	      $('#hidden_enent').hide();
+  	      $('#click_event').val('点击显示');
+  	    }
+  	  })
+  	})
+    $(function(){
+	    $("#test li ").click(function() {
+
+	        $(this).siblings('li').removeClass('mod-btn-group__item_active');  // 删除其他兄弟元素的样式
+
+	        $(this).addClass('mod-btn-group__item_active');                            // 添加当前元素的样式
+
+	    });
+
+	}); 
+    function showDivmc(objId){
+		   var objDiv=document.getElementById(objId);  
+		   var objDiv1=document.getElementById("mc1");   
+		   var objDiv2=document.getElementById("mc2"); 
+		    objDiv1.style.display="none";
+		    objDiv2.style.display="none";
+		   
+		        objDiv.style.display="";
+		  }
+    function switchTag(tag,content)
+    {
+//    	alert(tag);
+//    	alert(content);
+    for(i=1; i <8; i++)
+    {
+    	if ("tag"+i==tag)
+    	{
+    	document.getElementById(tag).getElementsByTagName("a")[0].className="selectli"+i;
+    	document.getElementById(tag).getElementsByTagName("a")[0].getElementsByTagName("span")[0].className="selectspan"+i;
+    	}else{
+    	document.getElementById("tag"+i).getElementsByTagName("a")[0].className="";
+    	document.getElementById("tag"+i).getElementsByTagName("a")[0].getElementsByTagName("span")[0].className="";
+    	}
+    	
+    	if ("content"+i==content)
+    	{
+    	document.getElementById(content).className="";
+    	}else{
+    	document.getElementById("content"+i).className="hidecontent";
+    	}
+    	document.getElementById("content").className=content;
+    	}
+    	}
+    </script>
+    
+    <script>
+        $(document).ready(
+        		function(){$.jgrid.defaults.styleUI="Bootstrap";
+        var mydata=[{id:"1",invdate:"2010-05-24",name:"test",note:"note",tax:"10.00",total:"2111.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"2",invdate:"2010-05-25",name:"test2",note:"note2",tax:"20.00",total:"320.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"3",invdate:"2007-09-01",name:"test3",note:"note3",tax:"30.00",total:"430.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"4",invdate:"2007-10-04",name:"test",note:"note",tax:"10.00",total:"210.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"5",invdate:"2007-10-05",name:"test2",note:"note2",tax:"20.00",total:"320.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"6",invdate:"2007-09-06",name:"test3",note:"note3",tax:"30.00",total:"430.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"7",invdate:"2007-09-06",name:"test3",note:"note3",tax:"30.00",total:"430.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"8",invdate:"2007-09-06",name:"test3",note:"note3",tax:"30.00",total:"430.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"9",invdate:"2007-09-06",name:"test3",note:"note3",tax:"30.00",total:"430.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"10",invdate:"2007-09-06",name:"test3",note:"note3",tax:"30.00",total:"430.00",totea:"n",moteb:"m",cotec:"c"},
+                    {id:"11",invdate:"2007-09-06",name:"test3",note:"note3",tax:"30.00",total:"430.00",totea:"n",moteb:"m",cotec:"c"}
+                    
+                    ];
+        $("#table_list_1").jqGrid({
+        	data:mydata,datatype:"local",height:250,
+        	autowidth:true,shrinkToFit:true,rowNum:14,rowList:[10,20,30],
+                    	colNames:["ID","任务ID","任务名称","任务状态","任务URL","下一步处理人","是否已完成","上一步处理人","任务执行时间","任务类型"],
+                    	colModel:[{name:"id",index:"id",width:60,sorttype:"int"},
+                    	          {name:"invdate",index:"invdate",width:90,sorttype:"date",formatter:"date"},
+                    	          {name:"name",index:"name",width:100},
+                    	          {name:"amount",index:"amount",width:80,align:"right",sorttype:"float",formatter:"number"},
+                    	          {name:"tax",index:"tax",width:80,align:"right",sorttype:"float"},
+                    	          {name:"total",index:"total",width:80,align:"right",sorttype:"float"},
+                    	          {name:"note",index:"note",width:80},
+                    	          {name:"totea",index:"totea",width:80},
+                    	          {name:"moteb",index:"moteb",width:80},
+                    	          {name:"cotec",index:"cotec",width:80}],
+                    	      
+                    	pager:"#pager_list_1",
+                    	viewrecords:true,
+//                     	caption:"jqGrid 示例1",
+						hidegrid:false
+                    	}
+        				);
+                    $("#table_list_2").jqGrid({
+                    	data:mydata,datatype:"local",height:250,width:
+                    		$("#table_list_1").width(),
+//                     	shrinkToFit:true,
+                    	
+                    	rowNum:20,rowList:[10,20,30],
+                    	colNames:["ID","任务ID","任务名称","任务状态","任务URL","下一步处理人","是否已完成","上一步处理人","任务执行时间","任务类型"],
+                    	colModel:[{name:"id",index:"id",width:40,sorttype:"int",search:true},
+                    	          {name:"invdate",index:"invdate",width:80,sorttype:"date",formatter:"date"},
+                    	          {name:"name",index:"name",width:80},
+                    	          {name:"amount",index:"amount",width:80,align:"right",sorttype:"float",formatter:"number"},
+                    	          {name:"tax",index:"tax",width:80,align:"right",sorttype:"float"},
+                    	          {name:"total",index:"total",width:80,align:"right",sorttype:"float"},
+                    	          {name:"note",index:"note",width:80,sortable:false},
+                    	          {name:"totea",index:"totea",width:60},
+                    	          {name:"moteb",index:"moteb",width:60},
+                    	          {name:"cotec",index:"cotec",width:60}],
+                    	          pager:"#pager_list_2",
+                    	          viewrecords:true,
+//                     	          caption:"jqGrid 示例2",
+//                     	          add:true,
+//                     	          edit:true,
+//                     	          addtext:"Add",
+//                     	          edittext:"Edit",
+                    	          hidegrid:false
+                    	          });
+                    /* $("#table_list_2").setSelection(4,true);
+                    
+                    $("#table_list_2").jqGrid("navGrid","#pager_list_2",{
+//                     	edit:true,
+//                     	add:true,del:true,
+                    	search:true},{height:200,reloadAfterSubmit:true}); */
+                    	
+                   	$(window).bind("resize",function(){
+                   		var width=$(".jqGrid_wrapper").width();
+        $("#table_list_1").setGridWidth(width);
+        $("#table_list_2").setGridWidth(width)
+        })});
+  
+    </script>
+</body>
+
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/index_v1.html?v=4.0 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:20 GMT -->
+</html>
